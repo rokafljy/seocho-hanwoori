@@ -871,22 +871,29 @@ if(reduceMotion){
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 }
 
-/* ---------- Hero video (autoplay muted + sound toggle) ---------- */
+/* ---------- Hero video (autoplay muted + sound/play toggle) ---------- */
 (function(){
   const v=document.getElementById('hero-video'), btn=document.getElementById('heroSound');
   if(!v) return;
-  if(reduceMotion){ v.removeAttribute('autoplay'); try{v.pause();}catch(e){} if(btn) btn.style.display='none'; return; }
   const tryPlay=()=>{ const p=v.play(); if(p&&p.catch) p.catch(()=>{}); };
-  tryPlay();
-  if(btn){
-    btn.addEventListener('click', ()=>{
-      v.muted=!v.muted;
-      if(!v.muted){ v.volume=0.85; tryPlay(); }
-      const on=!v.muted;
-      btn.innerHTML = on ? '<i class="ti ti-volume"></i><span>소리 끄기</span>' : '<i class="ti ti-volume-off"></i><span>소리 켜기</span>';
-      btn.setAttribute('aria-label', on ? '영상 소리 끄기' : '영상 소리 켜기');
-    });
+  const setBtn=(label,icon,aria)=>{ if(btn){ btn.innerHTML='<i class="ti '+icon+'"></i><span>'+label+'</span>'; btn.setAttribute('aria-label',aria); } };
+  const onSound=()=>setBtn('소리 끄기','ti-volume','영상 소리 끄기');
+  const offSound=()=>setBtn('소리 켜기','ti-volume-off','영상 소리 켜기');
+
+  if(reduceMotion){
+    // 모션 최소화: 자동재생 대신 '영상 재생' 버튼 제공 (포스터 표시)
+    v.removeAttribute('autoplay'); try{v.pause();}catch(e){}
+    setBtn('영상 재생','ti-player-play-filled','영상 재생');
+    if(btn) btn.onclick=()=>{ v.muted=false; v.volume=0.85; tryPlay(); onSound(); btn.onclick=toggleSound; };
+    return;
   }
+
+  tryPlay();
+  function toggleSound(){
+    v.muted=!v.muted;
+    if(!v.muted){ v.volume=0.85; tryPlay(); onSound(); } else { offSound(); }
+  }
+  if(btn) btn.onclick=toggleSound;
 })();
 
 /* ---------- Starfield (hero only, subtle) ---------- */
