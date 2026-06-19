@@ -12,6 +12,8 @@ const TYPES = {
   '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg',
   '.png': 'image/png', '.svg': 'image/svg+xml',
   '.webp': 'image/webp', '.ico': 'image/x-icon',
+  '.mp4': 'video/mp4', '.webm': 'video/webm', '.m4a': 'audio/mp4',
+  '.mp3': 'audio/mpeg', '.json': 'application/json',
 };
 
 http.createServer((req, res) => {

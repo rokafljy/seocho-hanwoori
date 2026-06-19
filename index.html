@@ -154,14 +154,21 @@ nav.scrolled .hamburger{color:var(--ink);}
 /* ---------- HERO ---------- */
 #hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;
   align-items:center;justify-content:center;text-align:center;padding:130px 24px 80px;overflow:hidden;color:var(--d-text-1);}
-.hero-bg{position:absolute;inset:0;z-index:0;background:url('images/orchestra.jpg') center 42%/cover no-repeat;}
-.hero-bg::after{content:'';position:absolute;inset:0;
+.hero-bg{position:absolute;inset:0;z-index:0;background:url('images/hero-poster.jpg') center/cover no-repeat;}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;}
+.hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
   background:
-    linear-gradient(180deg,rgba(7,13,36,.72) 0%,rgba(7,13,36,.55) 45%,rgba(7,13,36,.82) 100%),
-    radial-gradient(ellipse 70% 50% at 50% 38%,rgba(22,34,90,.35),transparent 70%);}
-.hero-bg::before{content:'';position:absolute;left:0;right:0;bottom:0;height:160px;z-index:1;
+    linear-gradient(180deg,rgba(7,13,36,.74) 0%,rgba(7,13,36,.52) 45%,rgba(7,13,36,.84) 100%),
+    radial-gradient(ellipse 70% 50% at 50% 38%,rgba(22,34,90,.3),transparent 70%);}
+.hero-scrim::after{content:'';position:absolute;left:0;right:0;bottom:0;height:160px;
   background:linear-gradient(180deg,transparent,var(--paper));}
-#star-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.6;}
+#star-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.4;}
+.hero-sound{position:absolute;right:22px;bottom:26px;z-index:3;display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--line-dark);background:rgba(7,13,36,.42);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  color:var(--d-text-1);padding:11px 17px;border-radius:40px;font-size:.82rem;cursor:pointer;transition:all .3s var(--ease);min-height:44px;}
+.hero-sound:hover{border-color:var(--gold-bright);color:var(--gold-light);background:rgba(7,13,36,.6);}
+.hero-sound i{font-size:1.1rem;color:var(--gold-bright);}
+@media(max-width:600px){.hero-sound{right:14px;bottom:84px;}}
 .hero-inner{position:relative;z-index:2;max-width:940px;}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line-dark);border-radius:40px;
   padding:8px 20px;margin-bottom:38px;font-size:.78rem;letter-spacing:.03em;color:var(--gold-light);
@@ -316,25 +323,6 @@ nav.scrolled .hamburger{color:var(--ink);}
 .info-cta{display:inline-flex;align-items:center;gap:9px;margin-top:22px;border:1px solid var(--line-dark);border-radius:40px;padding:12px 24px;color:var(--gold-light);font-size:.9rem;transition:all .4s var(--ease);}
 .info-cta:hover{background:var(--gold);color:#fff;border-color:var(--gold);}
 
-/* ---------- WATCH (공연 영상) ---------- */
-#watch{background:var(--paper-2);}
-.video-wrap{max-width:920px;margin:0 auto;}
-.video-facade{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;cursor:pointer;border:1px solid var(--line);
-  box-shadow:0 30px 70px -36px rgba(18,26,58,.55);background:var(--navy-800);}
-.video-facade img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease);}
-.video-facade::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,13,36,.12),rgba(7,13,36,.5));transition:background .4s;}
-.video-facade:hover img{transform:scale(1.04);}
-.video-facade:hover::after{background:linear-gradient(180deg,rgba(7,13,36,.22),rgba(7,13,36,.58));}
-.video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;
-  width:84px;height:84px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(120deg,var(--gold),var(--gold-bright));color:#fff;font-size:2.1rem;
-  box-shadow:0 14px 36px -8px rgba(168,129,62,.8);transition:transform .4s var(--ease);}
-.video-facade:hover .video-play{transform:translate(-50%,-50%) scale(1.08);}
-.video-facade iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-.video-cap{text-align:center;margin-top:24px;color:var(--ink-2);font-size:.92rem;}
-.video-cap a{color:var(--gold-deep);border-bottom:1px solid var(--line);padding-bottom:1px;white-space:nowrap;}
-.video-cap a:hover{color:var(--gold);}
-
 /* ---------- VISIT (오시는 길 & 편의시설) ---------- */
 #visit{background:var(--paper);}
 .visit-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,60px);align-items:stretch;}
@@ -485,6 +473,10 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
 <!-- ===== ① HERO ===== -->
 <header id="hero">
   <div class="hero-bg" aria-hidden="true"></div>
+  <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="auto" poster="images/hero-poster.jpg" aria-hidden="true">
+    <source src="images/hero.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-scrim" aria-hidden="true"></div>
   <canvas id="star-canvas" aria-hidden="true"></canvas>
   <div class="hero-inner">
     <div class="hero-badge"><i class="ti ti-award"></i> 2026 보건복지부 장관 표창 · 국내 최초 발달장애인 직업연주 오케스트라</div>
@@ -513,6 +505,7 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
       <a href="#program" class="btn btn-ghost"><i class="ti ti-music"></i> 프로그램 보기</a>
     </div>
   </div>
+  <button class="hero-sound" id="heroSound" aria-label="영상 소리 켜기"><i class="ti ti-volume-off"></i><span>소리 켜기</span></button>
   <div class="scroll-hint"><span>Scroll</span><i class="ti ti-chevron-down"></i></div>
 </header>
 
@@ -540,22 +533,6 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
       <img src="images/brass.jpg" alt="금빛 트롬본을 연주하는 서초한우리오케스트라 단원들" loading="lazy" />
     </div>
   </div>
-</section>
-
-<!-- ===== 공연 영상 WATCH ===== -->
-<section id="watch" class="block">
-  <div class="section-head reveal">
-    <span class="label-en">Watch.</span>
-    <h2>무대 위, 그날의 울림</h2>
-    <p class="lead">Live in Concert</p>
-  </div>
-  <div class="video-wrap reveal d1">
-    <div class="video-facade" data-yt="iFKA39C2EJw" role="button" tabindex="0" aria-label="서초한우리오케스트라 공연 영상 재생">
-      <img src="https://i.ytimg.com/vi/iFKA39C2EJw/hqdefault.jpg" alt="서초한우리오케스트라 공연 실황 영상 미리보기" loading="lazy" />
-      <span class="video-play"><i class="ti ti-player-play-filled"></i></span>
-    </div>
-  </div>
-  <p class="video-cap reveal d2">서초한우리오케스트라 공연 실황 · 2025 경기아트센터 &nbsp;·&nbsp; <a href="http://hwo.or.kr/bbs/vod/?vod_no=2" target="_blank" rel="noopener noreferrer">더 많은 공연 영상 보기 →</a></p>
 </section>
 
 <!-- ===== QUOTE BAND ===== -->
@@ -861,16 +838,6 @@ function tick(){
 }
 tick(); setInterval(tick,1000);
 
-/* ---------- Video facade (lazy YouTube) ---------- */
-document.querySelectorAll('.video-facade').forEach(f=>{
-  const load=()=>{
-    const id=f.dataset.yt;
-    f.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" title="서초한우리오케스트라 공연 영상" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
-  };
-  f.addEventListener('click', load);
-  f.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); load(); }});
-});
-
 /* ---------- Nav scroll + progress ---------- */
 const nav=document.getElementById('nav'), progress=document.getElementById('progress'), fab=document.getElementById('fab');
 function onScroll(){
@@ -903,6 +870,24 @@ if(reduceMotion){
   },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 }
+
+/* ---------- Hero video (autoplay muted + sound toggle) ---------- */
+(function(){
+  const v=document.getElementById('hero-video'), btn=document.getElementById('heroSound');
+  if(!v) return;
+  if(reduceMotion){ v.removeAttribute('autoplay'); try{v.pause();}catch(e){} if(btn) btn.style.display='none'; return; }
+  const tryPlay=()=>{ const p=v.play(); if(p&&p.catch) p.catch(()=>{}); };
+  tryPlay();
+  if(btn){
+    btn.addEventListener('click', ()=>{
+      v.muted=!v.muted;
+      if(!v.muted){ v.volume=0.85; tryPlay(); }
+      const on=!v.muted;
+      btn.innerHTML = on ? '<i class="ti ti-volume"></i><span>소리 끄기</span>' : '<i class="ti ti-volume-off"></i><span>소리 켜기</span>';
+      btn.setAttribute('aria-label', on ? '영상 소리 끄기' : '영상 소리 켜기');
+    });
+  }
+})();
 
 /* ---------- Starfield (hero only, subtle) ---------- */
 (function(){
