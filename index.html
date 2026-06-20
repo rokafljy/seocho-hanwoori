@@ -259,9 +259,9 @@ nav.scrolled .hamburger{color:var(--ink);}
 .artist-card{border:1px solid var(--line-soft);border-radius:14px;padding:36px 26px;background:var(--card);
   transition:transform .5s var(--ease),border-color .5s var(--ease),box-shadow .5s var(--ease);text-align:center;}
 .artist-card:hover{transform:translateY(-6px);border-color:var(--line);box-shadow:0 26px 50px -28px rgba(18,26,58,.4);}
-.artist-portrait{width:108px;height:108px;border-radius:50%;margin:0 auto 24px;display:flex;align-items:center;justify-content:center;
-  font-family:var(--display);font-size:2.5rem;font-weight:600;color:var(--gold-light);
-  background:radial-gradient(circle at 35% 30%,var(--navy-600),var(--navy-800));border:1px solid var(--line);position:relative;}
+.artist-portrait{width:140px;height:140px;border-radius:50%;margin:0 auto 24px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-size:2.5rem;font-weight:600;color:var(--gold-deep);
+  background:radial-gradient(circle at 35% 30%,#fcf8f0,#ece3d0);border:1px solid var(--line);position:relative;}
 .artist-portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;}
 .artist-portrait::after{content:'';position:absolute;inset:-2px;border-radius:50%;pointer-events:none;
   background:conic-gradient(from 220deg,transparent,rgba(195,154,82,.7),transparent 60%);
@@ -270,13 +270,28 @@ nav.scrolled .hamburger{color:var(--ink);}
 /* ---------- MEMBERS ---------- */
 #members{background:var(--card);}
 .members-panel{border:1px solid var(--line-soft);border-radius:18px;background:#fff;
-  padding:clamp(22px,4vw,46px);display:flex;flex-direction:column;gap:clamp(14px,2.2vw,26px);
+  padding:clamp(26px,4vw,52px);display:flex;flex-direction:column;gap:clamp(26px,3.2vw,40px);
   box-shadow:0 24px 60px -40px rgba(18,26,58,.45);}
-.members-panel img{width:100%;height:auto;display:block;}
-.members-panel img.short{width:62%;margin:0 auto;}
-.members-cap{text-align:center;margin-top:30px;color:var(--ink-2);font-size:.95rem;font-family:var(--serif);}
+.members-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(24px,2.4vw,36px) 10px;}
+.member{text-align:center;}
+.member-portrait{width:clamp(96px,11vw,128px);aspect-ratio:1;border-radius:50%;margin:0 auto 14px;position:relative;
+  background:radial-gradient(circle at 35% 30%,#fcf8f0,#ece3d0);border:1px solid var(--line);}
+.member-portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.member-portrait::after{content:'';position:absolute;inset:-2px;border-radius:50%;pointer-events:none;
+  background:conic-gradient(from 220deg,transparent,rgba(195,154,82,.7),transparent 60%);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 0);mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 0);}
+.member-name{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.3;}
+.member-inst{letter-spacing:.08em;font-size:.78rem;color:var(--gold);margin-top:6px;white-space:nowrap;}
+.members-cap{text-align:center;margin-top:34px;color:var(--ink-2);font-size:.95rem;font-family:var(--serif);}
 .members-cap b{color:var(--gold-deep);font-weight:600;}
-@media(max-width:560px){.members-panel img.short{width:80%;}}
+@media(max-width:920px){.members-grid{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:560px){
+  .members-panel{padding:26px 14px;}
+  .members-grid{grid-template-columns:repeat(3,1fr);gap:22px 6px;}
+  .member-portrait{width:clamp(82px,26vw,104px);}
+  .member-name{font-size:.96rem;}
+  .member-inst{font-size:.72rem;letter-spacing:.04em;}
+}
 .artist-role{font-family:var(--display);letter-spacing:.26em;text-transform:uppercase;font-size:.72rem;color:var(--gold);margin-bottom:8px;}
 .artist-name{font-family:var(--serif);font-size:1.45rem;font-weight:600;margin-bottom:14px;color:var(--ink);}
 .artist-bio{font-size:.84rem;color:var(--ink-3);line-height:1.75;}
@@ -614,10 +629,26 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
     <p class="lead">Orchestra Members</p>
   </div>
   <div class="members-panel reveal d1">
-    <img src="images/members1.png" alt="단원 — 남예은·이예은·임솔(Flute), 민경호·변모세(Clarinet)" loading="lazy" />
-    <img src="images/members2.png" alt="단원 — 송병근·우현민(Clarinet), 송선근·홍은표(Trombone), 김상윤(Saxophone)" loading="lazy" />
-    <img src="images/members3.png" alt="단원 — 임윤환(Euphonium), 조성우(Horn), 백준희(Cello), 이진우(Contrabass), 이기훈(Percussion)" loading="lazy" />
-    <img class="short" src="images/members4.png" alt="단원 — 정지숙(Percussion), 이재빈·전윤지(Piano)" loading="lazy" />
+    <div class="members-grid">
+      <div class="member"><div class="member-portrait"><img src="images/m01.png" alt="플루트 남예은" loading="lazy" /></div><div class="member-name">남예은</div><div class="member-inst">플루트</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m02.png" alt="플루트 이예은" loading="lazy" /></div><div class="member-name">이예은</div><div class="member-inst">플루트</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m03.png" alt="플루트 임솔" loading="lazy" /></div><div class="member-name">임솔</div><div class="member-inst">플루트</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m04.png" alt="클라리넷 민경호" loading="lazy" /></div><div class="member-name">민경호</div><div class="member-inst">클라리넷</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m05.png" alt="클라리넷 변모세" loading="lazy" /></div><div class="member-name">변모세</div><div class="member-inst">클라리넷</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m06.png" alt="클라리넷 송병근" loading="lazy" /></div><div class="member-name">송병근</div><div class="member-inst">클라리넷</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m07.png" alt="클라리넷 우현민" loading="lazy" /></div><div class="member-name">우현민</div><div class="member-inst">클라리넷</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m10.png" alt="색소폰 김상윤" loading="lazy" /></div><div class="member-name">김상윤</div><div class="member-inst">색소폰</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m08.png" alt="트롬본 송선근" loading="lazy" /></div><div class="member-name">송선근</div><div class="member-inst">트롬본</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m09.png" alt="트롬본 홍은표" loading="lazy" /></div><div class="member-name">홍은표</div><div class="member-inst">트롬본</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m11.png" alt="유포니엄 임윤환" loading="lazy" /></div><div class="member-name">임윤환</div><div class="member-inst">유포니엄</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m12.png" alt="호른 조성우" loading="lazy" /></div><div class="member-name">조성우</div><div class="member-inst">호른</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m13.png" alt="첼로 백준희" loading="lazy" /></div><div class="member-name">백준희</div><div class="member-inst">첼로</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m14.png" alt="콘트라베이스 이진우" loading="lazy" /></div><div class="member-name">이진우</div><div class="member-inst">콘트라베이스</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m15.png" alt="타악기 이기훈" loading="lazy" /></div><div class="member-name">이기훈</div><div class="member-inst">타악기</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m16.png" alt="타악기 정지숙" loading="lazy" /></div><div class="member-name">정지숙</div><div class="member-inst">타악기</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m17.png" alt="피아노 이재빈" loading="lazy" /></div><div class="member-name">이재빈</div><div class="member-inst">피아노</div></div>
+      <div class="member"><div class="member-portrait"><img src="images/m18.png" alt="피아노 전윤지" loading="lazy" /></div><div class="member-name">전윤지</div><div class="member-inst">피아노</div></div>
+    </div>
   </div>
   <p class="members-cap reveal d2">국내 최초 <b>발달장애인 직업연주자</b> 18인이 한 무대를 채웁니다.</p>
 </section>
