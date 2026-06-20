@@ -164,12 +164,12 @@ nav.scrolled .hamburger{color:var(--ink);}
 .hero-scrim::after{content:'';position:absolute;left:0;right:0;bottom:0;height:160px;
   background:linear-gradient(180deg,transparent,var(--paper));}
 #star-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.4;}
-.hero-sound{position:absolute;right:22px;bottom:26px;z-index:3;display:inline-flex;align-items:center;gap:8px;
-  border:1px solid var(--line-dark);background:rgba(7,13,36,.42);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  color:var(--d-text-1);padding:11px 17px;border-radius:40px;font-size:.82rem;cursor:pointer;transition:all .3s var(--ease);min-height:44px;}
-.hero-sound:hover{border-color:var(--gold-bright);color:var(--gold-light);background:rgba(7,13,36,.6);}
-.hero-sound i{font-size:1.1rem;color:var(--gold-bright);}
-@media(max-width:1040px){.hero-sound{right:14px;bottom:90px;}}
+.hero-sound{position:absolute;right:22px;bottom:26px;z-index:3;display:inline-flex;align-items:center;justify-content:center;
+  width:48px;height:48px;border:1px solid var(--line-dark);background:rgba(7,13,36,.42);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  color:var(--d-text-1);border-radius:50%;cursor:pointer;transition:all .3s var(--ease);}
+.hero-sound:hover{border-color:var(--gold-bright);background:rgba(7,13,36,.6);}
+.hero-sound i{font-size:1.25rem;color:var(--gold-bright);}
+@media(max-width:1040px){.hero-sound{top:72px;bottom:auto;right:14px;width:44px;height:44px;}}
 .hero-inner{position:relative;z-index:2;max-width:940px;}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line-dark);border-radius:40px;
   padding:8px 20px;margin-bottom:38px;font-size:.78rem;letter-spacing:.03em;color:var(--gold-light);
@@ -562,9 +562,8 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
     <h1 class="hero-slogan">
       <span class="s1">Cinema &amp; Opera</span>
       <span class="s2">시간을 초월한 선율</span>
-      <span class="s3">Timeless Melodies</span>
     </h1>
-    <p class="hero-kr">서초한우리오케스트라 제4회 정기연주회 · 국립오페라단 협연</p>
+    <p class="hero-kr">제4회 정기연주회 · 국립오페라단 협연</p>
     <div class="hero-meta">
       <span><i class="ti ti-calendar-event"></i> 2026. 7. 2 (목) 19:30</span>
       <span class="dot">·</span>
@@ -584,7 +583,7 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
       <a href="#program" class="btn btn-ghost"><i class="ti ti-music"></i> 프로그램 보기</a>
     </div>
   </div>
-  <button class="hero-sound" id="heroSound" aria-label="영상 소리 켜기"><i class="ti ti-volume-off"></i><span>소리 켜기</span></button>
+  <button class="hero-sound" id="heroSound" aria-label="영상 소리 켜기" title="영상 소리 켜기"><i class="ti ti-volume-off"></i></button>
   <div class="scroll-hint"><span>Scroll</span><i class="ti ti-chevron-down"></i></div>
 </header>
 
@@ -1045,14 +1044,14 @@ if(reduceMotion){
   const v=document.getElementById('hero-video'), btn=document.getElementById('heroSound');
   if(!v) return;
   const tryPlay=()=>{ const p=v.play(); if(p&&p.catch) p.catch(()=>{}); };
-  const setBtn=(label,icon,aria)=>{ if(btn){ btn.innerHTML='<i class="ti '+icon+'"></i><span>'+label+'</span>'; btn.setAttribute('aria-label',aria); } };
-  const onSound=()=>setBtn('소리 끄기','ti-volume','영상 소리 끄기');
-  const offSound=()=>setBtn('소리 켜기','ti-volume-off','영상 소리 켜기');
+  const setBtn=(icon,aria)=>{ if(btn){ btn.innerHTML='<i class="ti '+icon+'"></i>'; btn.setAttribute('aria-label',aria); btn.setAttribute('title',aria); } };
+  const onSound=()=>setBtn('ti-volume','영상 소리 끄기');
+  const offSound=()=>setBtn('ti-volume-off','영상 소리 켜기');
 
   if(reduceMotion){
     // 모션 최소화: 자동재생 대신 '영상 재생' 버튼 제공 (포스터 표시)
     v.removeAttribute('autoplay'); try{v.pause();}catch(e){}
-    setBtn('영상 재생','ti-player-play-filled','영상 재생');
+    setBtn('ti-player-play-filled','영상 재생');
     if(btn) btn.onclick=()=>{ v.muted=false; v.volume=0.85; tryPlay(); onSound(); btn.onclick=toggleSound; };
     return;
   }
