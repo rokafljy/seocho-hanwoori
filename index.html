@@ -15,16 +15,16 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="서초한우리오케스트라 제4회 정기연주회 | 시네마 & 오페라" />
 <meta property="og:description" content="시간을 초월한 선율 — 2026.7.2(목) 19:30 예술의전당 콘서트홀. 국립오페라단 협연." />
-<meta property="og:image" content="https://seocho-hanwoori.netlify.app/images/poster.png" />
+<meta property="og:image" content="https://rokafljy.github.io/seocho-hanwoori/images/poster.png" />
 <meta property="og:image:width" content="665" />
 <meta property="og:image:height" content="853" />
-<meta property="og:url" content="https://seocho-hanwoori.netlify.app/" />
+<meta property="og:url" content="https://rokafljy.github.io/seocho-hanwoori/" />
 <meta property="og:locale" content="ko_KR" />
 <meta property="og:site_name" content="서초한우리오케스트라" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="서초한우리오케스트라 제4회 정기연주회 | 시네마 & 오페라" />
 <meta name="twitter:description" content="시간을 초월한 선율 — 2026.7.2(목) 19:30 예술의전당 콘서트홀. 국립오페라단 협연." />
-<meta name="twitter:image" content="https://seocho-hanwoori.netlify.app/images/poster.png" />
+<meta name="twitter:image" content="https://rokafljy.github.io/seocho-hanwoori/images/poster.png" />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,7 +38,7 @@
 :root{
   /* Light gallery base */
   --paper:#faf6ee; --paper-2:#f1ead9; --card:#fffdf8;
-  --ink:#121a3a; --ink-2:#4b5578; --ink-3:#8089a6;
+  --ink:#121a3a; --ink-2:#41496b; --ink-3:#6a7290;
   /* Deep theatrical tones */
   --navy-900:#070d24; --navy-800:#0a1230; --navy-700:#0f1a44; --navy-600:#16225a;
   /* Gold */
@@ -65,9 +65,10 @@ body{
   background:var(--paper);
   color:var(--ink);
   font-family:var(--sans);
-  font-weight:300;
-  line-height:1.8;
+  font-weight:400;
+  line-height:1.75;
   -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
   overflow-x:hidden;
 }
 a{color:inherit;text-decoration:none;}
@@ -168,7 +169,7 @@ nav.scrolled .hamburger{color:var(--ink);}
   color:var(--d-text-1);padding:11px 17px;border-radius:40px;font-size:.82rem;cursor:pointer;transition:all .3s var(--ease);min-height:44px;}
 .hero-sound:hover{border-color:var(--gold-bright);color:var(--gold-light);background:rgba(7,13,36,.6);}
 .hero-sound i{font-size:1.1rem;color:var(--gold-bright);}
-@media(max-width:600px){.hero-sound{right:14px;bottom:84px;}}
+@media(max-width:1040px){.hero-sound{right:14px;bottom:90px;}}
 .hero-inner{position:relative;z-index:2;max-width:940px;}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line-dark);border-radius:40px;
   padding:8px 20px;margin-bottom:38px;font-size:.78rem;letter-spacing:.03em;color:var(--gold-light);
@@ -373,6 +374,45 @@ nav.scrolled .hamburger{color:var(--ink);}
 .access-note{margin-top:26px;font-size:.88rem;color:var(--ink-2);line-height:1.75;border-top:1px dashed var(--line-soft);padding-top:20px;}
 .access-note b{color:var(--gold-deep);}
 
+/* ---------- Inline CTA strip ---------- */
+.btn-outline{border-color:var(--line);color:var(--gold-deep);background:var(--card);font-weight:500;}
+.btn-outline:hover{background:var(--gold);color:#fff;border-color:var(--gold);transform:translateY(-3px);}
+.cta-strip{margin:clamp(44px,7vw,76px) auto 0;max-width:760px;text-align:center;
+  border:1px solid var(--line);border-radius:20px;padding:clamp(30px,5vw,46px) clamp(24px,4vw,40px);
+  background:radial-gradient(circle at 50% 0%,var(--card),var(--paper-2));}
+.cta-strip h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.25rem,3.6vw,1.7rem);color:var(--ink);line-height:1.4;}
+.cta-strip p{color:var(--ink-2);font-size:.96rem;margin-top:10px;}
+.cta-strip .btn{margin-top:24px;}
+
+/* ---------- SAVE THE DATE / POSTER ---------- */
+#savedate{background:var(--paper-2);}
+.sd-grid{display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(30px,5vw,64px);align-items:center;}
+.sd-poster{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line-soft);
+  box-shadow:0 34px 80px -40px rgba(18,26,58,.65);}
+.sd-poster img{width:100%;display:block;}
+.sd-poster .frame-tag{font-size:.62rem;}
+.sd-body .label-en{display:block;margin-bottom:16px;}
+.sd-body h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.6rem,3.6vw,2.5rem);line-height:1.32;color:var(--ink);letter-spacing:-.015em;}
+.sd-facts{margin:26px 0 6px;border-top:1px solid var(--line-soft);}
+.sd-fact{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line-soft);}
+.sd-fact>i{color:var(--gold);font-size:1.3rem;flex:0 0 auto;margin-top:2px;}
+.sd-fact .k{font-size:.74rem;color:var(--ink-3);letter-spacing:.04em;}
+.sd-fact .vv{font-size:1.02rem;color:var(--ink);font-weight:500;}
+.sd-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;}
+.sd-actions .btn{flex:0 0 auto;}
+
+/* ---------- Toast ---------- */
+.toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,16px);z-index:1200;
+  background:var(--navy-900);color:var(--d-text-1);font-size:.9rem;padding:13px 22px;border-radius:40px;
+  border:1px solid var(--line-dark);box-shadow:0 16px 40px -16px rgba(7,13,36,.8);
+  opacity:0;pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease);}
+.toast.show{opacity:1;transform:translate(-50%,0);}
+
+@media(max-width:780px){
+  .sd-grid{grid-template-columns:1fr;gap:30px;}
+  .sd-poster{max-width:330px;margin:0 auto;}
+}
+
 /* ---------- Floating CTA ---------- */
 .fab{position:fixed;right:22px;bottom:22px;z-index:850;display:inline-flex;align-items:center;gap:10px;
   padding:15px 26px;border-radius:44px;background:linear-gradient(120deg,var(--gold),var(--gold-bright));color:#fff;font-weight:500;font-size:.98rem;
@@ -382,6 +422,19 @@ nav.scrolled .hamburger{color:var(--ink);}
 .fab:hover{transform:translateY(-3px);box-shadow:0 18px 42px -10px rgba(168,129,62,.85);}
 .fab i{font-size:1.25rem;}
 .tab{min-height:44px;}
+
+/* ---------- Persistent mobile CTA bar ---------- */
+.mcta{position:fixed;left:0;right:0;bottom:0;z-index:860;display:none;align-items:center;gap:12px;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom)) 14px;
+  background:rgba(250,246,238,.93);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);
+  border-top:1px solid var(--line-soft);box-shadow:0 -6px 26px -18px rgba(18,26,58,.6);}
+.mcta-info{flex:1;min-width:0;line-height:1.28;}
+.mcta-info .d{font-family:var(--serif);font-weight:600;font-size:.92rem;color:var(--ink);}
+.mcta-info .p{font-size:.74rem;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mcta-btn{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:.98rem;
+  background:linear-gradient(120deg,var(--gold),var(--gold-bright));color:#fff;
+  padding:0 22px;min-height:50px;border-radius:40px;box-shadow:0 8px 22px -8px rgba(168,129,62,.75);}
+.mcta-btn i{font-size:1.2rem;}
 @media(max-width:880px){.visit-grid{grid-template-columns:1fr;}.access-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:600px){.fab{left:14px;right:14px;bottom:14px;justify-content:center;padding:16px;font-size:1.05rem;border-radius:16px;}}
 
@@ -419,6 +472,10 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
 @media(max-width:1040px){
   .nav-links{display:none;}
   .hamburger{display:block;}
+  .mcta{display:flex;}
+  .fab{display:none;}
+  .scroll-hint{display:none;}
+  body{padding-bottom:74px;}
 }
 @media(max-width:880px){
   .intro-grid{grid-template-columns:1fr;}
@@ -426,20 +483,27 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
   .artist-grid{grid-template-columns:repeat(2,1fr);}
   .info-grid{grid-template-columns:1fr;}
   .prog-head{grid-template-columns:auto 1fr;}
-  .prog-meta{grid-column:2;justify-content:flex-start;padding-top:6px;}
+  .prog-meta{grid-column:2;justify-content:space-between;padding-top:8px;}
   .prog-note-inner{padding-left:6px;}
 }
 @media(max-width:560px){
-  .block{padding:70px 20px;}
-  .stats{grid-template-columns:1fr;gap:18px;}
+  .block{padding:68px 20px;}
+  .stats{grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px;padding-top:28px;}
+  .stat .t{font-size:.74rem;}
   .artist-grid{grid-template-columns:1fr;}
-  .hist-stats{grid-template-columns:1fr;}
+  .hist-stats{grid-template-columns:repeat(2,1fr);}
   .prog-aside{grid-template-columns:1fr;}
   .prog-aside .img-frame{height:220px;}
   .hero-meta{flex-direction:column;gap:10px;}
   .hero-meta .dot{display:none;}
   .cd-cell{min-width:52px;}
-  .prog-tag{display:none;}
+  /* mobile readability: enlarge fine print */
+  .intro-body p,.info-card>p,.artist-bio{font-size:.96rem;}
+  .info-note,.access-note,.info-row,.v-row .vv,.access-item .d{font-size:.9rem;}
+  .tl-place,.prog-main .composer{font-size:.88rem;}
+  .hero-ctas{width:100%;gap:12px;margin-top:38px;}
+  .hero-ctas .btn{width:100%;justify-content:center;padding:16px 24px;}
+  .sd-actions .btn{flex:1 1 100%;justify-content:center;}
 }
 
 /* ---------- Reduced motion ---------- */
@@ -585,6 +649,12 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
       <div class="prog-list" id="progList"></div>
     </div>
   </div>
+
+  <div class="cta-strip reveal">
+    <h3>두 막의 여정, 객석에서 함께해 주세요</h3>
+    <p>2026. 7. 2 (목) 19:30 · 예술의전당 콘서트홀 · 국립오페라단 협연</p>
+    <a href="https://forms.gle/z7paaiJS4aXJCuAy6" target="_blank" rel="noopener noreferrer" class="btn btn-gold"><i class="ti ti-ticket"></i> 관람 신청하기</a>
+  </div>
 </section>
 
 <!-- ===== ④ ARTISTS ===== -->
@@ -684,6 +754,30 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
   </div>
 </section>
 
+<!-- ===== SAVE THE DATE / POSTER ===== -->
+<section id="savedate" class="block">
+  <div class="sd-grid">
+    <div class="sd-poster reveal d1">
+      <span class="frame-tag">Official Poster</span>
+      <img src="images/poster.png" alt="서초한우리오케스트라 제4회 정기연주회 '시네마 & 오페라' 공식 포스터" loading="lazy" />
+    </div>
+    <div class="sd-body reveal d2">
+      <span class="label-en">Save the Date.</span>
+      <h2>잊지 마세요, 시간을 초월한 선율이 흐르는 그 밤</h2>
+      <div class="sd-facts">
+        <div class="sd-fact"><i class="ti ti-calendar-event"></i><div><div class="k">공연 일시</div><div class="vv">2026. 7. 2 (목) 오후 7시 30분</div></div></div>
+        <div class="sd-fact"><i class="ti ti-map-pin"></i><div><div class="k">공연 장소</div><div class="vv">예술의전당 콘서트홀</div></div></div>
+        <div class="sd-fact"><i class="ti ti-microphone-2"></i><div><div class="k">협연</div><div class="vv">국립오페라단 소프라노 김효주 · 테너 이충만</div></div></div>
+      </div>
+      <div class="sd-actions">
+        <a href="https://forms.gle/z7paaiJS4aXJCuAy6" target="_blank" rel="noopener noreferrer" class="btn btn-gold"><i class="ti ti-ticket"></i> 관람 신청하기</a>
+        <a id="addCal" class="btn btn-outline" href="#" target="_blank" rel="noopener noreferrer"><i class="ti ti-calendar-plus"></i> 캘린더에 추가</a>
+        <button id="shareBtn" type="button" class="btn btn-outline"><i class="ti ti-share-2"></i> 공유하기</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== ⑥ INFO ===== -->
 <section id="info">
   <div class="info-bg" aria-hidden="true"></div>
@@ -776,6 +870,15 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
 </footer>
 
 <a href="https://forms.gle/z7paaiJS4aXJCuAy6" target="_blank" rel="noopener noreferrer" class="fab" id="fab" aria-label="관람 신청하기"><i class="ti ti-ticket"></i><span>관람 신청하기</span></a>
+
+<!-- Persistent mobile CTA bar -->
+<div class="mcta" role="region" aria-label="관람 신청">
+  <div class="mcta-info">
+    <div class="d">2026. 7. 2 (목) 19:30</div>
+    <div class="p">예술의전당 콘서트홀</div>
+  </div>
+  <a href="https://forms.gle/z7paaiJS4aXJCuAy6" target="_blank" rel="noopener noreferrer" class="mcta-btn"><i class="ti ti-ticket"></i> 관람 신청</a>
+</div>
 
 <script>
 'use strict';
@@ -891,6 +994,41 @@ function toggleMenu(force){
 }
 hamburger.addEventListener('click', ()=>toggleMenu());
 mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>toggleMenu(false)));
+
+/* ---------- Save the Date: calendar + share ---------- */
+(function(){
+  const FORM='https://forms.gle/z7paaiJS4aXJCuAy6';
+  const SITE='https://rokafljy.github.io/seocho-hanwoori/';
+  const cal=document.getElementById('addCal');
+  if(cal){
+    const text='서초한우리오케스트라 제4회 정기연주회 — 시네마 & 오페라';
+    const details='시네마 & 오페라 : 시간을 초월한 선율 · 국립오페라단 협연\n관람 신청: '+FORM;
+    const loc='예술의전당 콘서트홀 (서울 서초구 남부순환로 2406)';
+    cal.href='https://calendar.google.com/calendar/render?action=TEMPLATE'
+      +'&text='+encodeURIComponent(text)
+      +'&dates=20260702T103000Z/20260702T123000Z'
+      +'&details='+encodeURIComponent(details)
+      +'&location='+encodeURIComponent(loc);
+  }
+  function toast(msg){
+    const t=document.createElement('div'); t.className='toast'; t.textContent=msg;
+    document.body.appendChild(t); requestAnimationFrame(()=>t.classList.add('show'));
+    setTimeout(()=>{ t.classList.remove('show'); setTimeout(()=>t.remove(),320); },1900);
+  }
+  const sh=document.getElementById('shareBtn');
+  if(sh){
+    sh.addEventListener('click', async ()=>{
+      const data={title:'서초한우리오케스트라 제4회 정기연주회',
+        text:'시네마 & 오페라 : 시간을 초월한 선율 — 2026.7.2(목) 19:30 예술의전당 콘서트홀',
+        url:SITE};
+      try{
+        if(navigator.share){ await navigator.share(data); }
+        else if(navigator.clipboard){ await navigator.clipboard.writeText(SITE); toast('링크가 복사되었습니다'); }
+        else { window.prompt('아래 링크를 복사하세요', SITE); }
+      }catch(e){/* user cancelled */}
+    });
+  }
+})();
 
 /* ---------- Reveal ---------- */
 if(reduceMotion){
