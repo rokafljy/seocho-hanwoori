@@ -340,6 +340,29 @@ nav.scrolled .hamburger{color:var(--ink);}
 .info-note{margin-top:22px;font-size:.82rem;color:var(--d-text-3);line-height:1.7;border-top:1px dashed var(--line-dark);padding-top:18px;}
 .info-cta{display:inline-flex;align-items:center;gap:9px;margin-top:22px;border:1px solid var(--line-dark);border-radius:40px;padding:12px 24px;color:var(--gold-light);font-size:.9rem;transition:all .4s var(--ease);}
 .info-cta:hover{background:var(--gold);color:#fff;border-color:var(--gold);}
+/* 공연 섭외 라인업 */
+.connect-intro{max-width:780px;color:var(--d-text-2);font-size:1rem;line-height:1.85;margin-bottom:clamp(34px,5vw,50px);}
+.connect-intro b{color:var(--gold-light);font-weight:500;}
+.ensemble-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.ens-card{border:1px solid var(--line-dark);border-radius:14px;overflow:hidden;background:rgba(10,18,48,.5);
+  transition:transform .5s var(--ease),border-color .5s var(--ease),box-shadow .5s var(--ease);}
+.ens-card:hover{transform:translateY(-5px);border-color:var(--line);box-shadow:0 24px 50px -28px rgba(0,0,0,.6);}
+.ens-img{height:152px;overflow:hidden;}
+.ens-img img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease);}
+.ens-card:hover .ens-img img{transform:scale(1.06);}
+.ens-info{padding:20px 18px 24px;}
+.ens-name{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--gold-light);margin-bottom:9px;line-height:1.4;}
+.ens-name span{display:block;font-family:var(--display);font-style:italic;font-size:.82rem;color:var(--gold);font-weight:500;margin-top:2px;}
+.ens-desc{font-size:.84rem;color:var(--d-text-2);line-height:1.7;}
+.ensemble-cta{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:clamp(30px,4vw,42px);flex-wrap:wrap;}
+.ensemble-cta .ec-label{font-family:var(--display);letter-spacing:.16em;text-transform:uppercase;font-size:.72rem;color:var(--gold-bright);}
+.ensemble-cta a{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line-dark);border-radius:40px;padding:11px 22px;color:var(--gold-light);font-size:.92rem;min-height:44px;transition:all .4s var(--ease);}
+.ensemble-cta a:hover{background:var(--gold);color:#fff;border-color:var(--gold);}
+/* 후원 패널 */
+.support-wrap{margin-top:clamp(46px,7vw,76px);border-top:1px solid var(--line-dark);padding-top:clamp(40px,5vw,58px);display:flex;justify-content:center;}
+.support-wrap .info-card{max-width:680px;width:100%;}
+@media(max-width:880px){.ensemble-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.ensemble-grid{grid-template-columns:1fr;}}
 
 /* ---------- VISIT (오시는 길 & 편의시설) ---------- */
 #visit{background:var(--paper);}
@@ -537,7 +560,7 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
     <a href="#artists">출연진</a>
     <a href="#members">단원</a>
     <a href="#history">연혁</a>
-    <a href="#info">관람안내</a>
+    <a href="#info">섭외·후원</a>
     <a href="#visit">오시는 길</a>
     <a href="https://forms.gle/z7paaiJS4aXJCuAy6" target="_blank" rel="noopener noreferrer" class="nav-cta"><i class="ti ti-ticket"></i> 관람 신청하기</a>
   </div>
@@ -550,7 +573,7 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
   <a href="#artists">출연진<span class="label-en">Meet</span></a>
   <a href="#members">단원<span class="label-en">Together</span></a>
   <a href="#history">연혁<span class="label-en">Remember</span></a>
-  <a href="#info">관람안내<span class="label-en">Connect</span></a>
+  <a href="#info">섭외·후원<span class="label-en">Connect</span></a>
   <a href="#visit">오시는 길<span class="label-en">Visit</span></a>
   <a href="https://forms.gle/z7paaiJS4aXJCuAy6" target="_blank" rel="noopener noreferrer" class="nav-cta"><i class="ti ti-ticket"></i> 관람 신청하기</a>
 </div>
@@ -782,30 +805,41 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
   <div class="block">
     <div class="section-head reveal">
       <span class="label-en">Connect.</span>
-      <h2>관람 안내 &amp; 함께하는 후원</h2>
+      <h2>공연 섭외 &amp; 함께하는 후원</h2>
     </div>
-    <div class="info-grid">
-      <div class="info-card reveal d1">
-        <h3><i class="ti ti-ticket"></i> 관람 안내</h3>
-        <div class="sub">Performance Info</div>
-        <div class="info-row"><div class="k">공연명</div><div class="v"><b>시네마 &amp; 오페라 : 시간을 초월한 선율</b><br>서초한우리오케스트라 제4회 정기연주회</div></div>
-        <div class="info-row"><div class="k">일시</div><div class="v">2026. 7. 2 (목) 오후 7시 30분</div></div>
-        <div class="info-row"><div class="k">장소</div><div class="v">예술의전당 콘서트홀</div></div>
-        <div class="info-row"><div class="k">협연</div><div class="v">국립오페라단 (소프라노 김효주 · 테너 이충만)</div></div>
-        <div class="info-row"><div class="k">관람신청</div><div class="v"><b>온라인 관람 신청서</b>로 접수해 주세요</div></div>
-        <div class="info-row"><div class="k">문의</div><div class="v">070-7209-2932 · 2931</div></div>
-        <a href="https://forms.gle/z7paaiJS4aXJCuAy6" target="_blank" rel="noopener noreferrer" class="info-cta"><i class="ti ti-ticket"></i> 관람 신청하기</a>
-        <p class="info-note">예술의전당 콘서트홀은 국내 최초의 클래식 음악 전용 공연장이자 최대 객석 규모를 자랑합니다. 위 버튼을 통해 온라인으로 관람을 신청하실 수 있습니다.</p>
+    <p class="connect-intro reveal">서초한우리오케스트라는 음악을 통해 세상과 소통하고, 따뜻한 위로와 희망을 전하는 연주 단체입니다. 정통 클래식부터 대중음악까지 관객의 마음을 울리는 무대를 선사하며, <b>기업행사 · 지역축제 · 소규모 문화행사 · 장애인식개선교육</b> 등 행사 성격에 맞춘 편성으로 섭외가 가능합니다.</p>
+    <div class="ensemble-grid">
+      <div class="ens-card reveal d1">
+        <div class="ens-img"><img src="images/orchestra.jpg" alt="서초한우리오케스트라 풀 오케스트라 연주 모습" loading="lazy" /></div>
+        <div class="ens-info"><div class="ens-name">서초한우리오케스트라<span>Full Orchestra</span></div><p class="ens-desc">오케스트라 특유의 웅장하고 깊이 있는 하모니로 무대를 더욱 풍성하고 격조 높게 완성합니다.</p></div>
       </div>
+      <div class="ens-card reveal d1">
+        <div class="ens-img"><img src="images/flute.jpg" alt="플루트 앙상블 연주 모습" loading="lazy" /></div>
+        <div class="ens-info"><div class="ens-name">플루트 앙상블<span>Flute Ensemble</span></div><p class="ens-desc">은빛처럼 맑고 청아한 음색을 바탕으로 화사하고 우아한 음악적 감성을 선사합니다.</p></div>
+      </div>
+      <div class="ens-card reveal d2">
+        <div class="ens-img"><img src="images/clarinet.jpg" alt="클라리넷 앙상블 연주 모습" loading="lazy" /></div>
+        <div class="ens-info"><div class="ens-name">클라리넷 앙상블<span>Clarinet Ensemble</span></div><p class="ens-desc">목관악기 고유의 따뜻하고 포근한 음색으로 동화 같은 아늑함과 깊은 여운을 전합니다.</p></div>
+      </div>
+      <div class="ens-card reveal d2">
+        <div class="ens-img"><img src="images/brass.jpg" alt="금관 앙상블 연주 모습" loading="lazy" /></div>
+        <div class="ens-info"><div class="ens-name">금관 앙상블<span>Brass Ensemble</span></div><p class="ens-desc">묵직하고 힘있게 뻗어 나가는 사운드로 청중의 시선을 단숨에 사로잡으며 역동적인 에너지를 전합니다.</p></div>
+      </div>
+    </div>
+    <div class="ensemble-cta reveal">
+      <span class="ec-label">공연 섭외 문의</span>
+      <a href="tel:070-7209-2931"><i class="ti ti-phone"></i> 문화지원팀 070-7209-2931</a>
+    </div>
+
+    <div class="support-wrap">
       <div class="info-card reveal d2">
         <h3><i class="ti ti-heart-handshake"></i> 후원 안내</h3>
         <div class="sub">Support Us</div>
         <p>서초한우리오케스트라의 지속적인 예술 활동과 사회적 가치 실현에 동행해주실 후원자(기업·개인)를 모십니다. 여러분의 후원은 단원들의 안정적인 연주 환경 조성에 전액 사용됩니다.</p>
         <div class="info-row"><div class="k">후원계좌</div><div class="v"><b>우리은행 1005-901-571747</b></div></div>
         <div class="info-row"><div class="k">예금주</div><div class="v">서초구립한우리정보문화센터</div></div>
-        <div class="info-row"><div class="k">공연섭외</div><div class="v">문화지원팀 070-7209-2931</div></div>
-        <a href="tel:070-7209-2931" class="info-cta"><i class="ti ti-phone"></i> 후원·섭외 문의</a>
-        <p class="info-note">후원금은 연말정산 시 세액공제 혜택을 받으실 수 있습니다. 기업행사·지역축제·장애인식개선교육 등 맞춤형 공연 섭외가 가능합니다.</p>
+        <a href="tel:070-7209-2932" class="info-cta"><i class="ti ti-phone"></i> 후원 문의</a>
+        <p class="info-note">후원금은 연말정산 시 세액공제 혜택을 받으실 수 있습니다.</p>
       </div>
     </div>
   </div>
