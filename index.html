@@ -450,9 +450,13 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
 .foot-kr{font-family:var(--serif);font-size:1.05rem;color:var(--d-text-2);margin-top:22px;}
 .foot-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 26px;margin:46px 0 38px;font-size:.9rem;color:var(--d-text-2);}
 .foot-meta i{color:var(--gold-bright);margin-right:7px;}
-.foot-sponsors{border-top:1px solid var(--line-dark);padding-top:32px;}
-.foot-sponsors .lab{font-family:var(--display);letter-spacing:.24em;text-transform:uppercase;font-size:.68rem;color:var(--gold-bright);margin-bottom:14px;}
-.foot-sponsors .list{font-size:.88rem;color:var(--d-text-3);line-height:2;}
+.foot-sponsors{border-top:1px solid var(--line-dark);padding-top:34px;display:flex;flex-direction:column;gap:16px;align-items:center;}
+.org-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;}
+.org-tag{flex:0 0 auto;font-family:var(--sans);font-weight:500;letter-spacing:.06em;font-size:.72rem;
+  color:var(--gold-bright);border:1px solid var(--line);border-radius:40px;padding:5px 15px;white-space:nowrap;
+  background:rgba(203,176,115,.06);}
+.org-names{font-size:.9rem;color:var(--d-text-2);line-height:1.7;}
+@media(max-width:560px){.org-row{flex-direction:column;gap:8px;}}
 .copyright{margin-top:40px;font-size:.76rem;color:var(--d-text-3);letter-spacing:.03em;}
 
 /* ---------- Keyframes ---------- */
@@ -853,10 +857,13 @@ footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-
       <span><i class="ti ti-phone"></i>070-7209-2932</span>
     </div>
     <div class="foot-sponsors">
-      <div class="lab">주최 · 주관 · 후원</div>
-      <div class="list">
-        주최·주관 서초구립 한우리정보문화센터 · 서초한우리오케스트라<br>
-        후원 ㈜유베이스 · NS홈쇼핑 · 아웃백 스테이크하우스 · ㈜실론
+      <div class="org-row">
+        <span class="org-tag">주최 · 주관</span>
+        <span class="org-names">서초구립 한우리정보문화센터 · 서초한우리오케스트라</span>
+      </div>
+      <div class="org-row">
+        <span class="org-tag">후원</span>
+        <span class="org-names">㈜유베이스 · NS홈쇼핑 · 아웃백 스테이크하우스 · ㈜실론</span>
       </div>
     </div>
     <p class="copyright">© 2026 Seocho Hanwoori Orchestra · 서초구립 한우리정보문화센터. All rights reserved. · 사진 © 서초한우리오케스트라</p>
